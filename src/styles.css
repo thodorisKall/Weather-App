@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  background-color: #321414;
+}/*# sourceMappingURL=styles.css.map */
