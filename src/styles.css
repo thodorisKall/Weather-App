@@ -9,5 +9,36 @@
   height: 100vh;
   max-height: -moz-fit-content;
   max-height: fit-content;
-  background-color: #321414;
+  background: linear-gradient(rgba(50, 20, 20, 0.5), rgba(50, 20, 20, 0.3)), url(./assets/image-002.jpg) center center no-repeat;
+  background-size: cover, cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.app .app__text h1 {
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-size: 4rem;
+  color: #fffafa;
+}
+.app .app__text p {
+  color: #d3d3d3;
+  font-size: 1.1rem;
+}
+.app .app__button {
+  position: absolute;
+  bottom: 4rem;
+  width: 30%;
+}
+.app .app__button button {
+  background-color: #fffafa;
+  color: #321414;
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 20px 40px;
+  border: none;
 }/*# sourceMappingURL=styles.css.map */
