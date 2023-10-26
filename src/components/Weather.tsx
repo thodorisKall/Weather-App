@@ -1,11 +1,53 @@
 import React, { useState, FC } from "react"
+import {
+  FaCloudBolt,
+  FaCloudRain,
+  FaCloudShowersHeavy,
+  FaCloudSun,
+  FaSun,
+  FaLocationDot,
+} from "react-icons/fa6"
 
 const Weather: FC = () => {
+  const [location, setLocation] = useState<any>("")
+  const [address, setAddress] = useState<string | null>("")
+  const geo_API_KEY: string = "AIzaSyB_3Exh3ueUgeh52-aJZF3QbOfW-lr903M"
+  const getLocation = (): void => {
+    fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=https://maps.googleapis.com/maps/api/geocode/json?address={address}&key=${geo_API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setLocation(data)
+        console.log(data)
+      })
+      .catch((err) => {
+        console.log(err.message)
+      })
+  }
+
+  const handleKeyPress = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ): void => {
+    if (event.key == "Enter") {
+      event.preventDefault()
+      getLocation()
+    }
+  }
+
   return (
     <div className='weather'>
       <div className='weather__search'>
         <form>
-          <input type='text' placeholder='Enter City or Address' />
+          <FaLocationDot id='search--pin' />
+          <input
+            type='text'
+            placeholder='Enter City or Address'
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              setAddress(event.target.value)
+            }
+            onKeyPress={handleKeyPress}
+          />
         </form>
       </div>
       <div className='weather__status'>
@@ -13,7 +55,7 @@ const Weather: FC = () => {
         <h3>Partly Cloudy</h3>
       </div>
       <div className='weather__temp'>
-        <h3>22C</h3>
+        <h3>22&#8451;</h3>
       </div>
       <div className='weather__details'>
         <div className='weather__details--Humidity'>
