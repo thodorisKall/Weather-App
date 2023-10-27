@@ -1,24 +1,63 @@
-import React, { useState, FC } from "react"
+import React, { useState, useEffect, FC } from "react"
+
 import {
   FaCloudBolt,
   FaCloudRain,
   FaCloudShowersHeavy,
-  FaCloudSun,
-  FaSun,
-  FaLocationDot,
+  FaSnowflake,
+  FaCloud,
+  FaLocationCrosshairs,
 } from "react-icons/fa6"
 
+import {
+  WiFog,
+  WiSandstorm,
+  WiHumidity,
+  WiBarometer,
+  WiSolarEclipse,
+  WiDaySunnyOvercast,
+} from "react-icons/wi"
+
+import {
+  GeocodeResponse,
+  GeocodeResult,
+  AddressComponent,
+  Geometry,
+  Bounds,
+  LatLng,
+} from "./GeoApiInterface"
+
 const Weather: FC = () => {
-  const [location, setLocation] = useState<any>("")
-  const [address, setAddress] = useState<string | null>("")
-  const geo_API_KEY: string = "AIzaSyB_3Exh3ueUgeh52-aJZF3QbOfW-lr903M"
+  const [lattitude, setLattitude] = useState<number | null>()
+  const [longtitude, setLongtitude] = useState<number | null>()
+  const [location, setLocation] = useState<GeocodeResponse | null>()
+  const [address, setAddress] = useState<string | null>()
+  const [weather, setWeather] = useState<any | null>()
+  const geo_API_KEY: string = "AIzaSyAqbBzQOed0gRg4WfsndM874jJf1Vv5n_o"
+  const openWeather_API_KEY: string = "cdae50bde18e7f347886422012156661"
+
   const getLocation = (): void => {
     fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=https://maps.googleapis.com/maps/api/geocode/json?address={address}&key=${geo_API_KEY}`
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geo_API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => {
         setLocation(data)
+        setLattitude(data.results[0].geometry.location.lat)
+        setLongtitude(data.results[0].geometry.location.lng)
+        console.log(data)
+      })
+      .catch((err) => {
+        console.log(err.message)
+      })
+  }
+
+  const getWeather = (): void => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lattitude}&lon=${longtitude}&appid=${openWeather_API_KEY}&weather&units=metric `
+    )
+      .then((response) => response.json())
+      .then((data) => {
         console.log(data)
       })
       .catch((err) => {
@@ -35,11 +74,43 @@ const Weather: FC = () => {
     }
   }
 
+  const getSkyIcon = (value: string) => {
+    switch (value) {
+      case "Thunderstorm":
+        return <FaCloudBolt />
+      case "Drizzle":
+        return <FaCloudRain />
+      case "Rain":
+        return <FaCloudShowersHeavy />
+      case "Snow":
+        return <FaSnowflake />
+      case "Mist":
+        return <WiFog />
+      case "Fog":
+        return <WiFog />
+      case "Sand":
+        return <WiSandstorm />
+      case "Clear":
+        return <WiSolarEclipse />
+      case "Clouds":
+        return <FaCloud />
+      default:
+        // default icon
+        return <WiDaySunnyOvercast />
+    }
+  }
+
+  useEffect(() => {
+    if (lattitude && longtitude) {
+      getWeather()
+    }
+  }, [lattitude, longtitude])
+
   return (
     <div className='weather'>
       <div className='weather__search'>
         <form>
-          <FaLocationDot id='search--pin' />
+          <FaLocationCrosshairs id='search--pin' />
           <input
             type='text'
             placeholder='Enter City or Address'
@@ -60,11 +131,11 @@ const Weather: FC = () => {
       <div className='weather__details'>
         <div className='weather__details--Humidity'>
           <h4>Humidity</h4>
-          <p>40%</p>
+          <p>{longtitude}</p>
         </div>
         <div className='weather__details--Humidity'>
           <h4>Pressure</h4>
-          <p>500mg</p>
+          <p>{lattitude}</p>
         </div>
         <div className='weather__details--Humidity'>
           <h4>Visibility</h4>
