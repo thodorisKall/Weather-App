@@ -20,7 +20,6 @@ import {
 
 import {
   GeocodeResponse,
-  GeocodeResult,
   AddressComponent,
   Geometry,
   Bounds,
@@ -30,13 +29,13 @@ import {
 import {
   OpenWeatherResponse,
   Coordinates,
-  Weather,
+  WeatherDetails,
   Main,
   Clouds,
   Sys,
 } from "../Interfaces/OpenWeather"
 
-const Weather: FC = () => {
+const Weather: React.FC = () => {
   const [lattitude, setLattitude] = useState<number | null>()
   const [longtitude, setLongtitude] = useState<number | null>()
   const [location, setLocation] = useState<GeocodeResponse | null>()

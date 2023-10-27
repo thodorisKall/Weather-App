@@ -1,6 +1,6 @@
 export interface OpenWeatherResponse {
   coord: Coordinates
-  weather: Weather[]
+  weather: WeatherDetails[]
   base: string
   main: Main
   visibility: number
@@ -19,7 +19,7 @@ export interface Coordinates {
   lat: number
 }
 
-export interface Weather {
+export interface WeatherDetails {
   id: number
   main: string
   description: string
