@@ -25,14 +25,23 @@ import {
   Geometry,
   Bounds,
   LatLng,
-} from "./GeoApiInterface"
+} from "../Interfaces/GeoApi"
+
+import {
+  OpenWeatherResponse,
+  Coordinates,
+  Weather,
+  Main,
+  Clouds,
+  Sys,
+} from "../Interfaces/OpenWeather"
 
 const Weather: FC = () => {
   const [lattitude, setLattitude] = useState<number | null>()
   const [longtitude, setLongtitude] = useState<number | null>()
   const [location, setLocation] = useState<GeocodeResponse | null>()
   const [address, setAddress] = useState<string | null>()
-  const [weather, setWeather] = useState<any | null>()
+  const [weather, setWeather] = useState<OpenWeatherResponse | null>()
   const geo_API_KEY: string = "AIzaSyAqbBzQOed0gRg4WfsndM874jJf1Vv5n_o"
   const openWeather_API_KEY: string = "cdae50bde18e7f347886422012156661"
 
