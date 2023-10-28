@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./styles.css"
-import Weather from "./components/Weather"
+import Weather from "./Components/Weather"
 
 function App() {
   const [showComponent, setShowComponent] = useState<boolean>(false)
