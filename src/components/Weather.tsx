@@ -41,6 +41,7 @@ const Weather: React.FC = () => {
   const [location, setLocation] = useState<GeocodeResponse | null>()
   const [address, setAddress] = useState<string | null>()
   const [weatherData, setWeatherData] = useState<OpenWeatherResponse | null>()
+  const [spinnerActive, setSpinnerActive] = useState<boolean>(false)
   const geo_API_KEY: string = "AIzaSyB_3Exh3ueUgeh52-aJZF3QbOfW-lr903M"
   const openWeather_API_KEY: string = "cdae50bde18e7f347886422012156661"
 
@@ -78,6 +79,7 @@ const Weather: React.FC = () => {
     event: React.KeyboardEvent<HTMLInputElement>
   ): void => {
     if (event.key == "Enter") {
+      setSpinnerActive(true)
       event.preventDefault()
       getLocation()
     }
@@ -116,28 +118,30 @@ const Weather: React.FC = () => {
   }, [lattitude, longtitude])
 
   return (
-    <>
-      {weatherData && (
-        <div className='weather'>
-          <div className='weather__search'>
-            <form>
-              <FaLocationCrosshairs id='search--pin' />
-              <input
-                type='text'
-                placeholder='Enter City or Address'
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                  setAddress(event.target.value)
-                }
-                onKeyPress={handleKeyPress}
-              />
-            </form>
-          </div>
+    <div className='weather'>
+      <div className='weather__search'>
+        <form>
+          <FaLocationCrosshairs id='search--pin' />
+          <input
+            type='text'
+            placeholder='Enter City or Address'
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              setAddress(event.target.value)
+            }
+            onKeyPress={handleKeyPress}
+          />
+        </form>
+      </div>
+      {weatherData ? (
+        <>
           <div className='weather__status'>
             <p>{getSkyIcon(weatherData.weather[0].main)}</p>
             <h3>{weatherData.weather[0].description}</h3>
           </div>
           <div className='weather__temp'>
-            <h3>{Math.round(weatherData.main.temp)} &#8451;</h3>
+            <h3>
+              {Math.round(weatherData.main.temp)} <span> &#8451;</span>
+            </h3>
           </div>
           <div className='weather__details'>
             <div className='weather__details--Humidity'>
@@ -153,9 +157,16 @@ const Weather: React.FC = () => {
               <p>{weatherData.wind.speed}</p>
             </div>
           </div>
+        </>
+      ) : (
+        <div className={spinnerActive ? "lds-ellipsis" : "disabled"}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       )}
-    </>
+    </div>
   )
 }
 
