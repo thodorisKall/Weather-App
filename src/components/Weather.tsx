@@ -40,8 +40,8 @@ const Weather: React.FC = () => {
   const [longtitude, setLongtitude] = useState<number | null>()
   const [location, setLocation] = useState<GeocodeResponse | null>()
   const [address, setAddress] = useState<string | null>()
-  const [weather, setWeather] = useState<OpenWeatherResponse | null>()
-  const geo_API_KEY: string = "AIzaSyAqbBzQOed0gRg4WfsndM874jJf1Vv5n_o"
+  const [weatherData, setWeatherData] = useState<OpenWeatherResponse | null>()
+  const geo_API_KEY: string = "AIzaSyB_3Exh3ueUgeh52-aJZF3QbOfW-lr903M"
   const openWeather_API_KEY: string = "cdae50bde18e7f347886422012156661"
 
   const getLocation = (): void => {
@@ -67,6 +67,7 @@ const Weather: React.FC = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
+        setWeatherData(data)
       })
       .catch((err) => {
         console.log(err.message)
@@ -115,42 +116,46 @@ const Weather: React.FC = () => {
   }, [lattitude, longtitude])
 
   return (
-    <div className='weather'>
-      <div className='weather__search'>
-        <form>
-          <FaLocationCrosshairs id='search--pin' />
-          <input
-            type='text'
-            placeholder='Enter City or Address'
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              setAddress(event.target.value)
-            }
-            onKeyPress={handleKeyPress}
-          />
-        </form>
-      </div>
-      <div className='weather__status'>
-        <p>(clouds)</p>
-        <h3>Partly Cloudy</h3>
-      </div>
-      <div className='weather__temp'>
-        <h3>22&#8451;</h3>
-      </div>
-      <div className='weather__details'>
-        <div className='weather__details--Humidity'>
-          <h4>Humidity</h4>
-          <p>{longtitude}</p>
+    <>
+      {weatherData && (
+        <div className='weather'>
+          <div className='weather__search'>
+            <form>
+              <FaLocationCrosshairs id='search--pin' />
+              <input
+                type='text'
+                placeholder='Enter City or Address'
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                  setAddress(event.target.value)
+                }
+                onKeyPress={handleKeyPress}
+              />
+            </form>
+          </div>
+          <div className='weather__status'>
+            <p>{getSkyIcon(weatherData.weather[0].main)}</p>
+            <h3>{weatherData.weather[0].description}</h3>
+          </div>
+          <div className='weather__temp'>
+            <h3>{weatherData.main.temp}&#8451;</h3>
+          </div>
+          <div className='weather__details'>
+            <div className='weather__details--Humidity'>
+              <h4>Humidity</h4>
+              <p>{weatherData.main.humidity}</p>
+            </div>
+            <div className='weather__details--Pressure'>
+              <h4>Pressure</h4>
+              <p>{weatherData.main.pressure}</p>
+            </div>
+            <div className='weather__details--Wind'>
+              <h4>Wind Speed</h4>
+              <p>{weatherData.wind.speed}</p>
+            </div>
+          </div>
         </div>
-        <div className='weather__details--Humidity'>
-          <h4>Pressure</h4>
-          <p>{lattitude}</p>
-        </div>
-        <div className='weather__details--Humidity'>
-          <h4>Visibility</h4>
-          <p>70%</p>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   )
 }
 
