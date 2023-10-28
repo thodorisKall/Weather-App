@@ -137,7 +137,7 @@ const Weather: React.FC = () => {
             <h3>{weatherData.weather[0].description}</h3>
           </div>
           <div className='weather__temp'>
-            <h3>{weatherData.main.temp}&#8451;</h3>
+            <h3>{Math.round(weatherData.main.temp)} &#8451;</h3>
           </div>
           <div className='weather__details'>
             <div className='weather__details--Humidity'>
