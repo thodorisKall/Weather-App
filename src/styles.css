@@ -146,6 +146,9 @@
 .weather .weather__search form input::placeholder {
   font-size: 1rem;
 }
+.weather .weather__search form input:focus {
+  outline: none;
+}
 .weather .weather__status {
   display: flex;
   flex-direction: column;
