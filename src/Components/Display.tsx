@@ -79,7 +79,7 @@ const Weather: React.FC = () => {
   const handleKeyPress = (
     event: React.KeyboardEvent<HTMLInputElement>
   ): void => {
-    if (event.key == "Enter") {
+    if (event.key === "Enter") {
       setSpinnerActive(true)
       event.preventDefault()
       getLocation()

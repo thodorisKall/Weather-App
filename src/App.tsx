@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./styles.css"
-import Weather from "./Components/Weather"
+import Display from "./Components/Display"
 
 function App() {
   const [showComponent, setShowComponent] = useState<boolean>(false)
@@ -22,7 +22,7 @@ function App() {
         </>
       )}
 
-      {showComponent && <Weather />}
+      {showComponent && <Display />}
     </div>
   )
 }
