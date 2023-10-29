@@ -155,7 +155,7 @@
 
     .weather__details--Pressure {
       @extend .details--box;
-      background-color: rgba($black, 0.7);
+      background-color: rgba($black, 0.8);
     }
 
     .weather__details--Wind {
@@ -165,10 +165,13 @@
   }
 }
 
-// media queries
+// Media Queries
 @media (min-width: 600px) and (max-width: 1204px) {
   .app {
-    // border: 8px solid yellow;
+    .app__button {
+      width: 45%;
+      max-width: 25rem;
+    }
   }
 
   .weather {
@@ -186,16 +189,31 @@
 @media (min-width: 300px) and (max-width: 599px) {
   .app {
     height: auto;
+    min-height: 100vh;
     overflow-y: scroll;
+
+    .app__text {
+      h1 {
+        font-size: 3.4rem;
+      }
+    }
+
+    .app__button {
+      width: 40%;
+      min-width: 145px;
+    }
   }
 
   .weather {
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100%;
     .weather__search {
       width: 80%;
       height: 7%;
 
       form {
-        margin-top: 1rem;
+        margin-top: 2rem;
       }
     }
 
