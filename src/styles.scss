@@ -121,18 +121,21 @@
     border-radius: 20px;
     padding: 1rem;
     border: 1px solid white;
-    width: 28%;
+    min-width: 28%;
+    max-width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 
     h4 {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
 
     p {
       font-size: 1.4rem;
+      display: flex;
+      align-items: center;
     }
   }
 

@@ -16,6 +16,7 @@ import {
   WiBarometer,
   WiSolarEclipse,
   WiDaySunnyOvercast,
+  WiStrongWind,
 } from "react-icons/wi"
 
 import {
@@ -146,15 +147,24 @@ const Weather: React.FC = () => {
           <div className='weather__details'>
             <div className='weather__details--Humidity'>
               <h4>Humidity</h4>
-              <p>{weatherData.main.humidity}</p>
+              <p>
+                {weatherData.main.humidity}
+                <WiHumidity />
+              </p>
             </div>
             <div className='weather__details--Pressure'>
               <h4>Pressure</h4>
-              <p>{weatherData.main.pressure}</p>
+              <p>
+                {weatherData.main.pressure}
+                <WiBarometer />
+              </p>
             </div>
             <div className='weather__details--Wind'>
               <h4>Wind Speed</h4>
-              <p>{weatherData.wind.speed}</p>
+              <p>
+                {weatherData.wind.speed}
+                <WiStrongWind />
+              </p>
             </div>
           </div>
         </>

@@ -166,17 +166,21 @@
   border-radius: 20px;
   padding: 1rem;
   border: 1px solid white;
-  width: 28%;
+  min-width: 28%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 .weather .details--box h4, .weather .weather__details .weather__details--Wind h4, .weather .weather__details .weather__details--Pressure h4, .weather .weather__details .weather__details--Humidity h4 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 .weather .details--box p, .weather .weather__details .weather__details--Wind p, .weather .weather__details .weather__details--Pressure p, .weather .weather__details .weather__details--Humidity p {
   font-size: 1.4rem;
+  display: flex;
+  align-items: center;
 }
 .weather .weather__details {
   border: 2px solid white;
