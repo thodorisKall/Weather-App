@@ -116,6 +116,19 @@
   padding: 20px 40px;
   border: none;
 }
+.app #developed {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #6c3800;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+.app #developed a {
+  margin-left: 2px;
+  color: #bb6528;
+  text-decoration: none;
+}
 
 .weather {
   height: 100%;
@@ -222,6 +235,11 @@
     width: 45%;
     max-width: 25rem;
   }
+  .app #developed {
+    font-size: 0.9rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
   .weather .weather__search {
     width: 59%;
     height: 7%;
@@ -242,6 +260,11 @@
   .app .app__button {
     width: 40%;
     min-width: 145px;
+  }
+  .app #developed {
+    font-size: 0.8rem;
+    bottom: 0.7rem;
+    right: 1rem;
   }
   .weather {
     width: 100%;

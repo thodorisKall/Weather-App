@@ -66,6 +66,21 @@
       border: none;
     }
   }
+
+  #developed {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: $dark-brown;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+
+    a {
+      margin-left: 2px;
+      color: rgba($brown, 1);
+      text-decoration: none;
+    }
+  }
 }
 
 // Weather component
@@ -191,6 +206,12 @@
       width: 45%;
       max-width: 25rem;
     }
+
+    #developed {
+      font-size: 0.9rem;
+      bottom: 1rem;
+      right: 1rem;
+    }
   }
 
   .weather {
@@ -220,6 +241,12 @@
     .app__button {
       width: 40%;
       min-width: 145px;
+    }
+
+    #developed {
+      font-size: 0.8rem;
+      bottom: 0.7rem;
+      right: 1rem;
     }
   }
 
