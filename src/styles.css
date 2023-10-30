@@ -186,6 +186,7 @@
   margin: 0;
 }
 .weather .weather__status h3 {
+  text-transform: capitalize;
   font-size: 1.8rem;
 }
 .weather .weather__temp {
