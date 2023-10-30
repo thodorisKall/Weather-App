@@ -2,7 +2,7 @@
 
 ## 1. Goal of the Project
 
-The primary objective of this project is to showcase proficiency in React,SASS and TypeScript through the development of a user-friendly weather application. The app allows users to effortlessly search for and view the current weather conditions of any chosen city or address.
+The primary objective of this project is to showcase proficiency in React, SASS and TypeScript through the development of a user-friendly weather application. The app allows users to effortlessly search for and view the current weather conditions of any chosen city or address.
 
 ## 2. Deployment
 
@@ -36,9 +36,3 @@ The future vision of the project is to include historical weather data. This exp
 ## 7. Project Stage
 
 The project is currently in an ongoing development phase. The core functionality is implemented and operational, with future updates planned to incorporate historical weather data and enhance user experience further.
-
----
-
-**Note:** For any suggestions, feedback, or contributions to the project, feel free to reach out or visit the project repository.
-
-_Thank you for your interest in this weather app project!_
