@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# Weather App Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Goal of the Project
 
-## Available Scripts
+The primary objective of this project is to showcase proficiency in React,SASS and TypeScript through the development of a user-friendly weather application. The app allows users to effortlessly search for and view the current weather conditions of any chosen city or address.
 
-In the project directory, you can run:
+## 2. Deployment
 
-### `npm start`
+The application is currently deployed and accessible at [Weather App](https://weather-app-mu-five-84.vercel.app/). Feel free to visit this link to experience the functionality and interface of the application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 3. Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This weather application features a straightforward and engaging user interface with three distinct screens:
 
-### `npm test`
+1. **Home Screen:** Presents the app's title, a brief description, and a button to navigate to the weather search functionality.
+2. **Search Screen:** Users can input a desired city or address to fetch weather details.
+3. **Weather Display Screen:** Displays comprehensive weather information such as the city's name, temperature, sky conditions, humidity, wind speed, and more.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 4. Outcome
 
-### `npm run build`
+The outcome of this project is a functional, responsive, and visually appealing weather application that successfully integrates React and TypeScript technologies. Users can obtain real-time weather data with ease, enhancing their decision-making related to travel, events, and daily activities based on weather conditions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 5. Technology Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The project leverages a robust stack comprising:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React:** For building the user interface with state-of-the-art features.
+- **TypeScript:** Ensuring type safety and enhancing code quality and maintainability.
+- **SASS:** For advanced styling capabilities and efficient CSS management.
+- **HTML:** Structuring the content of the application.
 
-### `npm run eject`
+## 6. Vision
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The future vision of the project is to include historical weather data. This expansion will allow users to view a history of weather conditions for the past 5 or 14 days in addition to the current weather information. This feature aims to provide a comprehensive understanding of weather patterns and trends for any given location.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 7. Project Stage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The project is currently in an ongoing development phase. The core functionality is implemented and operational, with future updates planned to incorporate historical weather data and enhance user experience further.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+**Note:** For any suggestions, feedback, or contributions to the project, feel free to reach out or visit the project repository.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+_Thank you for your interest in this weather app project!_
