@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Playfair+Display&family=Roboto&display=swap");
 .lds-ellipsis {
   display: inline-block;
   position: relative;
@@ -68,6 +69,7 @@
 .app {
   width: 100%;
   height: 100vh;
+  font-family: "Oswald", "Roboto", "Playfair Display", sans-serif;
   max-height: -moz-fit-content;
   max-height: fit-content;
   background: linear-gradient(rgba(50, 20, 20, 0.5), rgba(50, 20, 20, 0.3)), url(./assets/image-002.jpg) center center no-repeat;
@@ -77,6 +79,17 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+.app h1,
+.app h2,
+.app h3,
+.app h4,
+.app h5,
+.app h6 {
+  font-family: "Oswald";
+}
+.app p {
+  font-family: "Roboto";
 }
 .app .app__text h1 {
   text-transform: uppercase;
@@ -164,6 +177,10 @@
 }
 .weather .weather__temp {
   font-size: 5.5rem;
+}
+.weather .weather__temp h3 {
+  font-family: "Playfair Display";
+  letter-spacing: 1px;
 }
 .weather .details--box, .weather .weather__details .weather__details--Wind, .weather .weather__details .weather__details--Pressure, .weather .weather__details .weather__details--Humidity {
   border-radius: 20px;
