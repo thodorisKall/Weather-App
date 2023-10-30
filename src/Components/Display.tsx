@@ -43,12 +43,16 @@ const Weather: React.FC = () => {
   const [address, setAddress] = useState<string | null>()
   const [weatherData, setWeatherData] = useState<OpenWeatherResponse | null>()
   const [spinnerActive, setSpinnerActive] = useState<boolean>(false)
-  const geo_API_KEY: string = "AIzaSyB_3Exh3ueUgeh52-aJZF3QbOfW-lr903M"
-  const openWeather_API_KEY: string = "cdae50bde18e7f347886422012156661"
+  const geoApiKey: string = process.env.REACT_APP_GEO_API_KEY as string
+  const weatherApiKey: string = process.env.REACT_APP_WEATHER_API_KEY as string
+
+  if (!weatherApiKey || !geoApiKey) {
+    throw new Error("Enviroment Vars have not assigned yet ")
+  }
 
   const getLocation = (): void => {
     fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geo_API_KEY}`
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geoApiKey}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -64,7 +68,7 @@ const Weather: React.FC = () => {
 
   const getWeather = (): void => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lattitude}&lon=${longtitude}&appid=${openWeather_API_KEY}&weather&units=metric `
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lattitude}&lon=${longtitude}&appid=${weatherApiKey}&weather&units=metric `
     )
       .then((response) => response.json())
       .then((data) => {
