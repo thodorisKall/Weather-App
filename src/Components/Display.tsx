@@ -1,11 +1,12 @@
 import React, { useState, useEffect, FC } from "react"
 
+import { BsClouds } from "react-icons/bs"
+
 import {
   FaCloudBolt,
   FaCloudRain,
   FaCloudShowersHeavy,
   FaSnowflake,
-  FaCloud,
   FaLocationCrosshairs,
 } from "react-icons/fa6"
 
@@ -109,7 +110,7 @@ const Weather: React.FC = () => {
       case "Clear":
         return <WiSolarEclipse />
       case "Clouds":
-        return <FaCloud />
+        return <BsClouds />
       default:
         // default icon
         return <WiDaySunnyOvercast />

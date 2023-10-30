@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import "./styles.css"
 import Display from "./Components/Display"
-import { VscGithub } from "react-icons/vsc"
 import { MdAdsClick } from "react-icons/md"
 
 function App() {
