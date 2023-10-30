@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import "./styles.css"
 import Display from "./Components/Display"
+import { VscGithub } from "react-icons/vsc"
+import { MdAdsClick } from "react-icons/md"
 
 function App() {
   const [showComponent, setShowComponent] = useState<boolean>(false)
@@ -19,6 +21,12 @@ function App() {
               Explore
             </button>
           </div>
+          <h5 id='developed'>
+            Developed by
+            <a href='https://www.thodoriskallioras.com' target='_blank'>
+              Thodoris Kallioras <MdAdsClick />
+            </a>
+          </h5>
         </>
       )}
 
