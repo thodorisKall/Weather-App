@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./styles.css"
 import Display from "./Components/Display"
 import { MdAdsClick } from "react-icons/md"
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [showComponent, setShowComponent] = useState<boolean>(false)
@@ -9,6 +10,7 @@ function App() {
     <div className='app'>
       {!showComponent && (
         <>
+          <Analytics />
           <div className='app__text'>
             <h1>SkySight</h1>
             <p>
