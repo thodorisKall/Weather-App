@@ -64,6 +64,7 @@
       border-radius: 1rem;
       padding: 20px 40px;
       border: none;
+      cursor: pointer;
     }
   }
 
@@ -87,7 +88,9 @@
 .weather {
   height: 100%;
   width: 100%;
-  background-color: rgba($black, 0.7);
+  // background-color: rgba($black, 0.7);
+  background-image: center center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -191,6 +194,10 @@
     .weather__details--Pressure {
       @extend .details--box;
       background-color: rgba($black, 0.8);
+
+      span {
+        font-size: 1.5rem;
+      }
     }
 
     .weather__details--Wind {
@@ -282,4 +289,57 @@
     width: 10rem;
     margin-bottom: 1rem;
   }
+}
+
+// general
+.bg-properties {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+// backgound classes
+.thunderBg {
+  background-image: url(./assets/thunder.jpg);
+  @extend .bg-properties;
+}
+
+.rainBg {
+  background-image: url(./assets/light-rain.jpg);
+  @extend .bg-properties;
+}
+
+.heavyRainBg {
+  background-image: url(./assets/heavy-rain.jpg);
+  @extend .bg-properties;
+}
+
+.snowBg {
+  background-image: url(./assets/snow.jpg);
+  @extend .bg-properties;
+}
+
+.mistBg {
+  background-image: url(./assets/mist.jpeg);
+  @extend .bg-properties;
+}
+
+.fogBg {
+  background-image: url(./assets/fog.jpg);
+  @extend .bg-properties;
+}
+
+.sandBg {
+  background-image: url(./assets/sand.jpg);
+  @extend .bg-properties;
+}
+
+.clearBg {
+  background-image: url(./assets/clear.jpg);
+  @extend .bg-properties;
+}
+
+.cloudsBg {
+  background-image: url(./assets/clouds.jpg);
+  @extend .bg-properties;
 }
