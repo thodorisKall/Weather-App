@@ -18,6 +18,7 @@ import {
   WiSolarEclipse,
   WiDaySunnyOvercast,
   WiStrongWind,
+  WiCelsius,
 } from "react-icons/wi"
 
 import {
@@ -36,6 +37,10 @@ import {
   Clouds,
   Sys,
 } from "../Interfaces/OpenWeather"
+
+interface bgStyle {
+  bgImage: string
+}
 
 const Weather: React.FC = () => {
   const [lattitude, setLattitude] = useState<number | null>()
@@ -60,7 +65,6 @@ const Weather: React.FC = () => {
         setLocation(data)
         setLattitude(data.results[0].geometry.location.lat)
         setLongtitude(data.results[0].geometry.location.lng)
-        console.log(data)
       })
       .catch((err) => {
         console.log(err.message)
@@ -73,7 +77,6 @@ const Weather: React.FC = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setWeatherData(data)
       })
       .catch((err) => {
@@ -112,8 +115,39 @@ const Weather: React.FC = () => {
       case "Clouds":
         return <BsClouds />
       default:
-        // default icon
         return <WiDaySunnyOvercast />
+    }
+  }
+
+  const getBackground = (value: string) => {
+    switch (value) {
+      case "Thunderstorm":
+        return "thunderBg"
+      case "Drizzle":
+        return "rainBg"
+      case "Rain":
+        return "heavyRainBg"
+      case "Snow":
+        return "snowBg"
+      case "Mist":
+        return "mistBg"
+      case "Fog":
+        return "fogBg"
+      case "Sand":
+        return "sandBg"
+      case "Clear":
+        return "clearBg"
+      case "Clouds":
+        return "cloudsBg"
+      default:
+        return "fogBg"
+    }
+  }
+
+  let dynamicBg: bgStyle | undefined
+  if (weatherData) {
+    dynamicBg = {
+      bgImage: getBackground(weatherData.weather[0].main),
     }
   }
 
@@ -124,7 +158,9 @@ const Weather: React.FC = () => {
   }, [lattitude, longtitude])
 
   return (
-    <div className='weather'>
+    <div
+      className={"weather " + (dynamicBg?.bgImage ? dynamicBg?.bgImage : "")}
+    >
       <div className='weather__search'>
         <form>
           <FaLocationCrosshairs id='search--pin' />
@@ -145,6 +181,7 @@ const Weather: React.FC = () => {
             <h3>{weatherData.weather[0].description}</h3>
           </div>
           <div className='weather__temp'>
+            <h5>{weatherData.name}</h5>
             <h3>
               {Math.round(weatherData.main.temp)} <span> &#8451;</span>
             </h3>
@@ -158,10 +195,10 @@ const Weather: React.FC = () => {
               </p>
             </div>
             <div className='weather__details--Pressure'>
-              <h4>Pressure</h4>
+              <h4>Feels like</h4>
               <p>
-                {weatherData.main.pressure}
-                <WiBarometer />
+                {weatherData.main.feels_like}
+                <span> &#8451;</span>
               </p>
             </div>
             <div className='weather__details--Wind'>
