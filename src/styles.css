@@ -67,18 +67,23 @@
 }
 
 #root {
-  height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  height: 100%;
 }
 
 .app {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   font-family: "Oswald", "Roboto", "Playfair Display", sans-serif;
-  max-height: -moz-fit-content;
-  max-height: fit-content;
   background: linear-gradient(rgba(50, 20, 20, 0.5), rgba(50, 20, 20, 0.3)), url(./assets/image-002.jpg) center center no-repeat;
-  background-size: cover, cover;
+  background-size: cover;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
