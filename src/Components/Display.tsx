@@ -49,25 +49,25 @@ const Weather: React.FC = () => {
   const [address, setAddress] = useState<string | null>()
   const [weatherData, setWeatherData] = useState<OpenWeatherResponse | null>()
   const [spinnerActive, setSpinnerActive] = useState<boolean>(false)
-  const geoApiKey: string = process.env.REACT_APP_GEO_API_KEY as string
+  const geoCodKey: string = process.env.REACT_APP_GEO_API_KEY as string
   const weatherApiKey: string = process.env.REACT_APP_WEATHER_API_KEY as string
 
-  if (!weatherApiKey || !geoApiKey) {
+  if (!weatherApiKey || !geoCodKey) {
     throw new Error("Enviroment Vars have not assigned yet ")
   }
 
   const getLocation = (): void => {
     fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${geoApiKey}`
+      `https://api.opencagedata.com/geocode/v1/json?q=${address}&key=${geoCodKey}`
     )
       .then((response) => response.json())
       .then((data) => {
         setLocation(data)
-        setLattitude(data.results[0].geometry.location.lat)
-        setLongtitude(data.results[0].geometry.location.lng)
+        setLattitude(data.results[0].geometry.lat)
+        setLongtitude(data.results[0].geometry.lng)
       })
       .catch((err) => {
-        console.log(err.message)
+        console.log("ERROR at GeoCoding API" + err.message)
       })
   }
 
