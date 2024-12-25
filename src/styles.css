@@ -168,7 +168,7 @@ body {
   margin-right: 2px;
 }
 .weather .weather__search form input {
-  background-color: rgba(255, 250, 250, 0.1);
+  background-color: rgba(255, 250, 250, 0.4);
   width: 90%;
   height: 100%;
   border-radius: 5px;
@@ -179,9 +179,17 @@ body {
 }
 .weather .weather__search form input::-moz-placeholder {
   font-size: 1rem;
+  color: #555;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-family: "Roboto", "Helvetica Neue";
 }
 .weather .weather__search form input::placeholder {
   font-size: 1rem;
+  color: #555;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-family: "Roboto", "Helvetica Neue";
 }
 .weather .weather__search form input:focus {
   outline: none;
