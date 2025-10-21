@@ -49,25 +49,24 @@ const Weather: React.FC = () => {
   const [address, setAddress] = useState<string | null>()
   const [weatherData, setWeatherData] = useState<OpenWeatherResponse | null>()
   const [spinnerActive, setSpinnerActive] = useState<boolean>(false)
-  const geoCodKey: string = process.env.REACT_APP_GEO_API_KEY as string
+  const geoKeoKey: string = process.env.REACT_APP_GEO_KEO_API_KEY as string
   const weatherApiKey: string = process.env.REACT_APP_WEATHER_API_KEY as string
 
-  if (!weatherApiKey || !geoCodKey) {
+  if (!weatherApiKey || !geoKeoKey) {
     throw new Error("Enviroment Vars have not assigned yet ")
   }
 
   const getLocation = (): void => {
     fetch(
-      `https://api.opencagedata.com/geocode/v1/json?q=${address}&key=${geoCodKey}`
+      `https://corsproxy.io/?https://geokeo.com/geocode/v1/search.php?q=${address}&api=${geoKeoKey}`
     )
       .then((response) => response.json())
       .then((data) => {
-        setLocation(data)
-        setLattitude(data.results[0].geometry.lat)
-        setLongtitude(data.results[0].geometry.lng)
+        setLattitude(parseFloat(data.results[0].geometry.location.lat))
+        setLongtitude(parseFloat(data.results[0].geometry.location.lng))
       })
       .catch((err) => {
-        console.log("ERROR at GeoCoding API" + err.message)
+        console.log("ERROR at GeoKeo API" + err.message)
       })
   }
 
